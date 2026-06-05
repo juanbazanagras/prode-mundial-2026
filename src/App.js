@@ -505,7 +505,18 @@ function AdminTab({ users, onApprove, onReject, fixtures, phases, groupKeys, sel
         </div>
       ))}
 
-      <div style={{ fontFamily: "'Bebas Neue',cursive", fontSize: 20, letterSpacing: 2, color: "#c8a84b", margin: "28px 0 12px" }}>IMAGEN DE FONDO</div>
+      <div style={{ fontFamily: "'Bebas Neue',cursive", fontSize: 20, letterSpacing: 2, color: "#c8a84b", margin: "28px 0 12px" }}>ACTUALIZAR RESULTADOS</div>
+<div className="card" style={{ padding: 20, marginBottom: 20 }}>
+  <div style={{ fontSize: 13, color: "#666", marginBottom: 12 }}>Forzá la actualización manual desde la API de football-data.org</div>
+  <button className="gold-btn" onClick={async () => {
+    try {
+      const r = await fetch('/api/update-results');
+      const d = await r.json();
+      alert(d.message || 'Actualizado');
+    } catch { alert('Error al actualizar'); }
+  }}>⟳ Actualizar ahora</button>
+</div>
+    <div style={{ fontFamily: "'Bebas Neue',cursive", fontSize: 20, letterSpacing: 2, color: "#c8a84b", margin: "28px 0 12px" }}>IMAGEN DE FONDO</div>
       <div className="card" style={{ padding: 20 }}>
         <div style={{ fontSize: 12, color: "#666", letterSpacing: 1.5, textTransform: "uppercase", marginBottom: 8 }}>URL de imagen</div>
         <input className="input-field" value={bgUrl} onChange={e => setBgUrl(e.target.value)} placeholder="https://..." />
