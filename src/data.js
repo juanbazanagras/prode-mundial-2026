@@ -1,3 +1,34 @@
+export const GROUPS = {
+  A: ["México", "Ecuador", "Jamaica", "Países Bajos"],
+  B: ["Portugal", "España", "Marruecos", "Bélgica"],
+  C: ["Argentina", "Chile", "Perú", "Alemania"],
+  D: ["Brasil", "Colombia", "Venezuela", "Japón"],
+  E: ["Uruguay", "Bolivia", "Panamá", "Francia"],
+  F: ["Estados Unidos", "Canadá", "Honduras", "Italia"],
+  G: ["Inglaterra", "Polonia", "Turquía", "Senegal"],
+  H: ["Australia", "Nigeria", "Ghana", "Corea del Sur"],
+  I: ["Arabia Saudita", "Qatar", "Croacia", "Dinamarca"],
+  J: ["Argelia", "Sudáfrica", "Nueva Zelanda", "Serbia"],
+  K: ["Costa Rica", "El Salvador", "Camerún", "Suiza"],
+  L: ["Irán", "Iraq", "Paraguay", "Austria"],
+};
+ 
+export const FLAGS = {
+  "México": "🇲🇽", "Ecuador": "🇪🇨", "Jamaica": "🇯🇲", "Países Bajos": "🇳🇱",
+  "Portugal": "🇵🇹", "España": "🇪🇸", "Marruecos": "🇲🇦", "Bélgica": "🇧🇪",
+  "Argentina": "🇦🇷", "Chile": "🇨🇱", "Perú": "🇵🇪", "Alemania": "🇩🇪",
+  "Brasil": "🇧🇷", "Colombia": "🇨🇴", "Venezuela": "🇻🇪", "Japón": "🇯🇵",
+  "Uruguay": "🇺🇾", "Bolivia": "🇧🇴", "Panamá": "🇵🇦", "Francia": "🇫🇷",
+  "Estados Unidos": "🇺🇸", "Canadá": "🇨🇦", "Honduras": "🇭🇳", "Italia": "🇮🇹",
+  "Inglaterra": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Polonia": "🇵🇱", "Turquía": "🇹🇷", "Senegal": "🇸🇳",
+  "Australia": "🇦🇺", "Nigeria": "🇳🇬", "Ghana": "🇬🇭", "Corea del Sur": "🇰🇷",
+  "Arabia Saudita": "🇸🇦", "Qatar": "🇶🇦", "Croacia": "🇭🇷", "Dinamarca": "🇩🇰",
+  "Argelia": "🇩🇿", "Sudáfrica": "🇿🇦", "Nueva Zelanda": "🇳🇿", "Serbia": "🇷🇸",
+  "Costa Rica": "🇨🇷", "El Salvador": "🇸🇻", "Camerún": "🇨🇲", "Suiza": "🇨🇭",
+  "Irán": "🇮🇷", "Iraq": "🇮🇶", "Paraguay": "🇵🇾", "Austria": "🇦🇹",
+  "TBD": "🏳️",
+};
+ 
 export const generateGroupFixtures = () => {
   const fixtures = [];
   let id = 1;
@@ -22,7 +53,7 @@ export const generateGroupFixtures = () => {
   });
   return fixtures;
 };
-
+ 
 export const generateKnockoutFixtures = () => {
   const ko = [];
   let id = 200;
@@ -42,9 +73,9 @@ export const generateKnockoutFixtures = () => {
   });
   return ko;
 };
-
+ 
 export const INITIAL_FIXTURES = [...generateGroupFixtures(), ...generateKnockoutFixtures()];
-
+ 
 export const calcScore = (pred, homeScore, awayScore) => {
   if (pred.home_score === null || pred.away_score === null) return 0;
   if (pred.home_score === homeScore && pred.away_score === awayScore) return 3;
@@ -52,6 +83,7 @@ export const calcScore = (pred, homeScore, awayScore) => {
   const p = pred.home_score > pred.away_score ? "H" : pred.home_score < pred.away_score ? "A" : "D";
   return real === p ? 1 : 0;
 };
-
+ 
 export const PHASES = ["Grupos", "Octavos", "Cuartos", "Semifinal", "Tercer puesto", "Final"];
 export const GROUP_KEYS = Object.keys(GROUPS);
+ 
